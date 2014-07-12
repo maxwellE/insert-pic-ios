@@ -11,18 +11,18 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
     
-    var nextKeyboardButton: UIButton!
+//    var nextKeyboardButton: UIButton!
     var dotButton: UIButton!
-    var dashButton: UIButton!
-    var deleteButton: UIButton!
-    var hideKeyboardButton: UIButton!
+//    var dashButton: UIButton!
+//    var deleteButton: UIButton!
+//    var hideKeyboardButton: UIButton!
     
     var customInterface: UIView!
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        var nib = UINib(nibName: "CustomKeyBoard", bundle: nil)
+        var nib = UINib(nibName: "CustomKeyboardInterface", bundle: nil)
         let objects = nib.instantiateWithOwner(self, options: nil)
         customInterface = objects[0] as UIView
     }
@@ -35,54 +35,13 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         view.addSubview(customInterface)
-        
+     
         addKeyboardButtons()
     }
     
     func addKeyboardButtons() {
         addDot()
-        addDash()
-        
-        addDelete()
-        
-        addNextKeyboardButton()
-        addHideKeyboardButton()
-    }
-    
-    func addNextKeyboardButton() {
-        nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
-        
-        nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
-        nextKeyboardButton.sizeToFit()
-        nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
-        
-        view.addSubview(nextKeyboardButton)
-        
-        
-        
-        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: +10.0)
-        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item:nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -10.0)
-        view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
-    }
-    
-    func addHideKeyboardButton() {
-        hideKeyboardButton = UIButton.buttonWithType(.System) as UIButton
-        
-        hideKeyboardButton.setTitle("Hide Keyboard", forState: .Normal)
-        hideKeyboardButton.sizeToFit()
-        hideKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        hideKeyboardButton.addTarget(self, action: "dismissKeyboard", forControlEvents: .TouchUpInside)
-        
-        view.addSubview(hideKeyboardButton)
-        
-        var rightSideConstraint = NSLayoutConstraint(item: hideKeyboardButton, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -10.0)
-        var bottomConstraint = NSLayoutConstraint(item: hideKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -10.0)
-        view.addConstraints([rightSideConstraint, bottomConstraint])
     }
     
     func addDot() {
@@ -100,70 +59,15 @@ class KeyboardViewController: UIInputViewController {
         view.addSubview(dotButton)
         
         var dotCenterYConstraint = NSLayoutConstraint(item: dotButton, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0)
-        var dotCenterXConstraint = NSLayoutConstraint(item: dotButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: -50)
+        var dotCenterXConstraint = NSLayoutConstraint(item: dotButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0)
         
         view.addConstraints([dotCenterXConstraint, dotCenterYConstraint])
-    }
-    
-    func addDash() {
-        dashButton = UIButton.buttonWithType(.System) as UIButton
-        dashButton.setTitle("_", forState: .Normal)
-        dashButton.sizeToFit()
-        dashButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        dashButton.addTarget(self, action: "didTapDash", forControlEvents: .TouchUpInside)
-        
-        dashButton.titleLabel.font = UIFont.systemFontOfSize(32)
-        
-        dashButton.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        dashButton.layer.cornerRadius = 5
-        
-        view.addSubview(dashButton)
-        
-        var dashCenterYConstraint = NSLayoutConstraint(item: dashButton, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0)
-        var dashCenterXConstraint = NSLayoutConstraint(item: dashButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: +50)
-        
-        view.addConstraints([dashCenterXConstraint, dashCenterYConstraint])
-    }
-    
-    func addDelete() {
-        deleteButton = UIButton.buttonWithType(.System) as UIButton
-        deleteButton.setTitle(" Delete ", forState: .Normal)
-        deleteButton.sizeToFit()
-        deleteButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        deleteButton.addTarget(self, action: "didTapDelete", forControlEvents: .TouchUpInside)
-        
-        deleteButton.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        deleteButton.layer.cornerRadius = 5
-        
-        view.addSubview(deleteButton)
-        
-        var rightSideConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -10.0)
-        var topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: +10.0)
-        view.addConstraints([rightSideConstraint, topConstraint])
-    }
-    
-    func didTapDot() {
-        var proxy = textDocumentProxy as UITextDocumentProxy
-        
-        proxy.insertText(".")
-    }
-    
-    func didTapDash() {
-        var proxy = textDocumentProxy as UITextDocumentProxy
-        
-        proxy.insertText("_")
-    }
-    
-    func didTapDelete() {
-        var proxy = textDocumentProxy as UITextDocumentProxy
-        
-        proxy.deleteBackward()
     }
     
     @IBAction func didTapWeheartSwift() {
         var proxy = textDocumentProxy as UITextDocumentProxy
         
-        proxy.insertText("We ❤ Swift")
+        proxy.insertText("Gif Added")
     }
     
     override func didReceiveMemoryWarning() {
@@ -184,7 +88,6 @@ class KeyboardViewController: UIInputViewController {
         } else {
             textColor = UIColor.blackColor()
         }
-        nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
     }
     
 }
