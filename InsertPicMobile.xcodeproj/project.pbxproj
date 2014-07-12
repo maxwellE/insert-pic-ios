@@ -14,9 +14,17 @@
 		B5FB81BE1971D34D00E6C105 /* InsertPicMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81BD1971D34D00E6C105 /* InsertPicMobileTests.swift */; };
 		B5FB81D01971D43D00E6C105 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */; };
 		B5FB81D31971D43D00E6C105 /* InsertPicKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */; };
+		B5FB81DB1971D82700E6C105 /* GiphyRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81DA1971D82700E6C105 /* GiphyRequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B58A2B121971F222006F0089 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FB819D1971D34D00E6C105 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5FB81A41971D34D00E6C105;
+			remoteInfo = InsertPicMobile;
+		};
 		B5FB81B81971D34D00E6C105 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5FB819D1971D34D00E6C105 /* Project object */;
@@ -67,6 +75,7 @@
 		B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsertPicKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FB81CE1971D43D00E6C105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		B5FB81DA1971D82700E6C105 /* GiphyRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyRequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */,
+				B5FB81DA1971D82700E6C105 /* GiphyRequestManager.swift */,
 				B5FB81CD1971D43D00E6C105 /* Supporting Files */,
 			);
 			path = InsertPicKeyboard;
@@ -203,6 +213,7 @@
 			);
 			dependencies = (
 				B5FB81B91971D34D00E6C105 /* PBXTargetDependency */,
+				B58A2B131971F222006F0089 /* PBXTargetDependency */,
 			);
 			name = InsertPicMobileTests;
 			productName = InsertPicMobileTests;
@@ -316,12 +327,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FB81D01971D43D00E6C105 /* KeyboardViewController.swift in Sources */,
+				B5FB81DB1971D82700E6C105 /* GiphyRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B58A2B131971F222006F0089 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5FB81A41971D34D00E6C105 /* InsertPicMobile */;
+			targetProxy = B58A2B121971F222006F0089 /* PBXContainerItemProxy */;
+		};
 		B5FB81B91971D34D00E6C105 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5FB81A41971D34D00E6C105 /* InsertPicMobile */;
@@ -529,6 +546,7 @@
 				B5FB81C31971D34D00E6C105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5FB81C41971D34D00E6C105 /* Build configuration list for PBXNativeTarget "InsertPicMobileTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +555,7 @@
 				B5FB81C61971D34D00E6C105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5FB81D61971D43D00E6C105 /* Build configuration list for PBXNativeTarget "InsertPicKeyboard" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +564,7 @@
 				B5FB81D81971D43D00E6C105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
