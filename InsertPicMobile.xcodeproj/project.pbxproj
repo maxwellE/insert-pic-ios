@@ -12,6 +12,8 @@
 		B5FB81B01971D34D00E6C105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FB81AE1971D34D00E6C105 /* Main.storyboard */; };
 		B5FB81B21971D34D00E6C105 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FB81B11971D34D00E6C105 /* Images.xcassets */; };
 		B5FB81BE1971D34D00E6C105 /* InsertPicMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81BD1971D34D00E6C105 /* InsertPicMobileTests.swift */; };
+		B5FB81D01971D43D00E6C105 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */; };
+		B5FB81D31971D43D00E6C105 /* InsertPicKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,7 +24,35 @@
 			remoteGlobalIDString = B5FB81A41971D34D00E6C105;
 			remoteInfo = InsertPicMobile;
 		};
+		B5FB81D11971D43D00E6C105 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FB819D1971D34D00E6C105 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5FB81CA1971D43D00E6C105;
+			remoteInfo = InsertPicKeyboard;
+		};
+		B5FB81D41971D43D00E6C105 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FB819D1971D34D00E6C105 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5FB81CA1971D43D00E6C105;
+			remoteInfo = InsertPicKeyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5FB81D91971D43D00E6C105 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5FB81D31971D43D00E6C105 /* InsertPicKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B5FB81A51971D34D00E6C105 /* InsertPicMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsertPicMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +64,9 @@
 		B5FB81B71971D34D00E6C105 /* InsertPicMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsertPicMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FB81BC1971D34D00E6C105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5FB81BD1971D34D00E6C105 /* InsertPicMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertPicMobileTests.swift; sourceTree = "<group>"; };
+		B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsertPicKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FB81CE1971D43D00E6C105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +84,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5FB81C81971D43D00E6C105 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +99,7 @@
 			children = (
 				B5FB81A71971D34D00E6C105 /* InsertPicMobile */,
 				B5FB81BA1971D34D00E6C105 /* InsertPicMobileTests */,
+				B5FB81CC1971D43D00E6C105 /* InsertPicKeyboard */,
 				B5FB81A61971D34D00E6C105 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +109,7 @@
 			children = (
 				B5FB81A51971D34D00E6C105 /* InsertPicMobile.app */,
 				B5FB81B71971D34D00E6C105 /* InsertPicMobileTests.xctest */,
+				B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +151,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5FB81CC1971D43D00E6C105 /* InsertPicKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB81CF1971D43D00E6C105 /* KeyboardViewController.swift */,
+				B5FB81CD1971D43D00E6C105 /* Supporting Files */,
+			);
+			path = InsertPicKeyboard;
+			sourceTree = "<group>";
+		};
+		B5FB81CD1971D43D00E6C105 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB81CE1971D43D00E6C105 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,10 +178,13 @@
 				B5FB81A11971D34D00E6C105 /* Sources */,
 				B5FB81A21971D34D00E6C105 /* Frameworks */,
 				B5FB81A31971D34D00E6C105 /* Resources */,
+				B5FB81D91971D43D00E6C105 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5FB81D21971D43D00E6C105 /* PBXTargetDependency */,
+				B5FB81D51971D43D00E6C105 /* PBXTargetDependency */,
 			);
 			name = InsertPicMobile;
 			productName = InsertPicMobile;
@@ -147,6 +209,23 @@
 			productReference = B5FB81B71971D34D00E6C105 /* InsertPicMobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B5FB81CA1971D43D00E6C105 /* InsertPicKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5FB81D61971D43D00E6C105 /* Build configuration list for PBXNativeTarget "InsertPicKeyboard" */;
+			buildPhases = (
+				B5FB81C71971D43D00E6C105 /* Sources */,
+				B5FB81C81971D43D00E6C105 /* Frameworks */,
+				B5FB81C91971D43D00E6C105 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InsertPicKeyboard;
+			productName = InsertPicKeyboard;
+			productReference = B5FB81CB1971D43D00E6C105 /* InsertPicKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +241,9 @@
 					B5FB81B61971D34D00E6C105 = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = B5FB81A41971D34D00E6C105;
+					};
+					B5FB81CA1971D43D00E6C105 = {
+						CreatedOnToolsVersion = 6.0;
 					};
 				};
 			};
@@ -180,6 +262,7 @@
 			targets = (
 				B5FB81A41971D34D00E6C105 /* InsertPicMobile */,
 				B5FB81B61971D34D00E6C105 /* InsertPicMobileTests */,
+				B5FB81CA1971D43D00E6C105 /* InsertPicKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +278,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B5FB81B51971D34D00E6C105 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5FB81C91971D43D00E6C105 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +311,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5FB81C71971D43D00E6C105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5FB81D01971D43D00E6C105 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,6 +326,16 @@
 			isa = PBXTargetDependency;
 			target = B5FB81A41971D34D00E6C105 /* InsertPicMobile */;
 			targetProxy = B5FB81B81971D34D00E6C105 /* PBXContainerItemProxy */;
+		};
+		B5FB81D21971D43D00E6C105 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5FB81CA1971D43D00E6C105 /* InsertPicKeyboard */;
+			targetProxy = B5FB81D11971D43D00E6C105 /* PBXContainerItemProxy */;
+		};
+		B5FB81D51971D43D00E6C105 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5FB81CA1971D43D00E6C105 /* InsertPicKeyboard */;
+			targetProxy = B5FB81D41971D43D00E6C105 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -378,6 +486,30 @@
 			};
 			name = Release;
 		};
+		B5FB81D71971D43D00E6C105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InsertPicKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B5FB81D81971D43D00E6C105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = InsertPicKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,6 +535,14 @@
 			buildConfigurations = (
 				B5FB81C51971D34D00E6C105 /* Debug */,
 				B5FB81C61971D34D00E6C105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B5FB81D61971D43D00E6C105 /* Build configuration list for PBXNativeTarget "InsertPicKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5FB81D71971D43D00E6C105 /* Debug */,
+				B5FB81D81971D43D00E6C105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
