@@ -21,32 +21,43 @@
                     </constraints>
                 </webView>
                 <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-jr-VIG">
-                    <rect key="frame" x="12" y="7" width="71" height="66"/>
+                    <rect key="frame" x="12" y="7" width="58" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="71" id="TFU-cV-tnL"/>
-                        <constraint firstAttribute="height" constant="66" id="UIj-Oe-BVe"/>
+                        <constraint firstAttribute="width" constant="58" id="TFU-cV-tnL"/>
+                        <constraint firstAttribute="height" constant="65" id="UIj-Oe-BVe"/>
                     </constraints>
-                    <state key="normal" image="defaultButton.png">
+                    <state key="normal" image="left.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didTapGifAdded" destination="-1" eventType="touchUpInside" id="iEu-cM-VV5"/>
+                        <action selector="prevImage:" destination="-1" eventType="touchUpInside" id="6Dc-oT-iVO"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-vB-Esp">
-                    <rect key="frame" x="552" y="7" width="32" height="30"/>
-                    <state key="normal" title="Next">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-vB-Esp">
+                    <rect key="frame" x="526" y="7" width="58" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="58" id="DAj-Tr-1Hm"/>
+                    </constraints>
+                    <state key="normal" image="right.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="nextImage:" destination="-1" eventType="touchUpInside" id="xnG-WH-ZTo"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Tn-UbA">
-                    <rect key="frame" x="283" y="7" width="39" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Tn-UbA">
+                    <rect key="frame" x="252" y="7" width="100" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Paste">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="didPressPasteImage:" destination="-1" eventType="touchUpInside" id="Tdi-qS-Pl9"/>
                     </connections>
@@ -54,11 +65,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Ybt-vB-Esp" firstAttribute="bottom" secondItem="65t-jr-VIG" secondAttribute="bottom" id="0JM-qa-2tO"/>
                 <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="Ybt-vB-Esp" secondAttribute="bottom" constant="3" id="J8j-aT-S9C"/>
                 <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" id="L7I-SG-xvs"/>
                 <constraint firstItem="65t-jr-VIG" firstAttribute="leading" secondItem="RFS-P7-gMV" secondAttribute="leading" constant="12" id="Lrw-g4-c2Y"/>
                 <constraint firstItem="Ybt-vB-Esp" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" constant="13" id="Pn3-di-jT4"/>
                 <constraint firstAttribute="trailing" secondItem="Ybt-vB-Esp" secondAttribute="trailing" constant="20" symbolic="YES" id="RZg-0Y-hca"/>
+                <constraint firstItem="3Ff-Tn-UbA" firstAttribute="top" secondItem="Ybt-vB-Esp" secondAttribute="top" id="TCl-Bz-dbv"/>
+                <constraint firstItem="3Ff-Tn-UbA" firstAttribute="centerX" secondItem="455-Dv-pAa" secondAttribute="centerX" id="dY8-P6-7EQ"/>
                 <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" id="eh4-Z1-B6C"/>
                 <constraint firstItem="455-Dv-pAa" firstAttribute="leading" secondItem="RFS-P7-gMV" secondAttribute="leading" constant="5" id="nOM-aQ-ckp"/>
                 <constraint firstItem="Ybt-vB-Esp" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" constant="7" id="sib-L9-w1A"/>
@@ -78,6 +92,7 @@
         </view>
     </objects>
     <resources>
-        <image name="defaultButton.png" width="120" height="121"/>
+        <image name="left.png" width="100" height="115"/>
+        <image name="right.png" width="100" height="115"/>
     </resources>
 </document>

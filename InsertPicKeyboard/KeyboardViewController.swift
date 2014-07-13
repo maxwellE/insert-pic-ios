@@ -19,18 +19,45 @@ class KeyboardViewController: UIInputViewController {
     var nextImageButton: UIButton!
     var imageURLS: [NSURL]?
     var index: Int = 0
+    var searchLen: Int?
     
     @IBAction func nextImage(sender: UIButton) {
         advanceGif()
     }
     
+    @IBAction func prevImage(sender: AnyObject) {
+        previousGif()
+    }
+    
+    func previousGif() {
+        if index > 0 {
+            index -= 1
+        }
+        else {
+            index = (imageURLS?.count as Int) - 1
+        }
+        loadImage()
+    }
+    
     @IBAction func didPressPasteImage(sender: UIButton) {
         var proxy = textDocumentProxy as UITextDocumentProxy
+        var i = 0
+        while i < searchLen? {
+            proxy.deleteBackward()
+            i += 1
+        }
         var urlText = imageURLS?[index].absoluteString
         proxy.insertText(urlText)
     }
     func advanceGif() {
         index += 1
+        if index > imageURLS?.count {
+            index = 0
+        }
+        loadImage()
+    }
+    
+    func loadImage() {
         let url = imageURLS?[index] as NSURL
         var bodyStr = "<html><body style='background: url(\"".stringByAppendingFormat("%@\")", url)
         var final = bodyStr.stringByAppendingString(" no-repeat center center fixed;background-repeat: no-repeat;background-size: contain;'></body></html>")
@@ -58,6 +85,11 @@ class KeyboardViewController: UIInputViewController {
         view.addSubview(customInterface)
      
         addKeyboardButtons()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        didTapGifAdded()
     }
     
     func addKeyboardButtons() {
@@ -94,18 +126,20 @@ class KeyboardViewController: UIInputViewController {
         var proxy = textDocumentProxy as UITextDocumentProxy
         var searchText = proxy.documentContextBeforeInput as String?
         let withoutWhitespace = searchText?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        println(withoutWhitespace)
-        let anchorman = "anchorman"
-        imageSearch.getGifUrlsForSearchText(withoutWhitespace!, successFunction: {(gifURLS: [NSURL]) -> Void in
-            self.index = -1
-            self.imageURLS = gifURLS
-            if self.imageURLS?.count > 0 {
-                self.advanceGif()
-            }
-            else {
-                return
-            }}, failureFunction: {(e: NSError?) -> Void in
-                println(e)})
+//        println(withoutWhitespace)
+        if countElements(withoutWhitespace!) > 0{
+            imageSearch.getGifUrlsForSearchText(withoutWhitespace!, successFunction: {(gifURLS: [NSURL]) -> Void in
+                self.index = -1
+                self.imageURLS = gifURLS
+                self.searchLen = countElements(searchText!)
+                if self.imageURLS?.count > 0 {
+                    self.advanceGif()
+                }
+                else {
+                    return
+                }}, failureFunction: {(e: NSError?) -> Void in
+                    println(e)})
+        }
         }
     
     override func didReceiveMemoryWarning() {
