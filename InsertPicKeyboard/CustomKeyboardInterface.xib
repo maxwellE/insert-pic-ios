@@ -4,26 +4,80 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardViewController" customModule="InsertPicKeyboard" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardViewController" customModule="InsertPicKeyboard" customModuleProvider="target">
+            <connections>
+                <outlet property="webView" destination="455-Dv-pAa" id="raW-4g-O30"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="RFS-P7-gMV">
-            <rect key="frame" x="0.0" y="0.0" width="69" height="45"/>
+            <rect key="frame" x="0.0" y="0.0" width="604" height="366"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-jr-VIG">
-                    <rect key="frame" x="10" y="6" width="52" height="30"/>
-                    <state key="normal" title="Add Gif">
+                <webView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="455-Dv-pAa">
+                    <rect key="frame" x="5" y="0.0" width="594" height="266"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="266" id="uHg-tA-XuQ"/>
+                    </constraints>
+                </webView>
+                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-jr-VIG">
+                    <rect key="frame" x="12" y="7" width="71" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="71" id="TFU-cV-tnL"/>
+                        <constraint firstAttribute="height" constant="66" id="UIj-Oe-BVe"/>
+                    </constraints>
+                    <state key="normal" image="defaultButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didTapGifAdded" destination="-1" eventType="touchUpInside" id="iEu-cM-VV5"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-vB-Esp">
+                    <rect key="frame" x="552" y="7" width="32" height="30"/>
+                    <state key="normal" title="Next">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextImage:" destination="-1" eventType="touchUpInside" id="xnG-WH-ZTo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Tn-UbA">
+                    <rect key="frame" x="283" y="7" width="39" height="30"/>
+                    <state key="normal" title="Paste">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressPasteImage:" destination="-1" eventType="touchUpInside" id="Tdi-qS-Pl9"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="Ybt-vB-Esp" secondAttribute="bottom" constant="3" id="J8j-aT-S9C"/>
+                <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" id="L7I-SG-xvs"/>
+                <constraint firstItem="65t-jr-VIG" firstAttribute="leading" secondItem="RFS-P7-gMV" secondAttribute="leading" constant="12" id="Lrw-g4-c2Y"/>
+                <constraint firstItem="Ybt-vB-Esp" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" constant="13" id="Pn3-di-jT4"/>
+                <constraint firstAttribute="trailing" secondItem="Ybt-vB-Esp" secondAttribute="trailing" constant="20" symbolic="YES" id="RZg-0Y-hca"/>
+                <constraint firstItem="455-Dv-pAa" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" id="eh4-Z1-B6C"/>
+                <constraint firstItem="455-Dv-pAa" firstAttribute="leading" secondItem="RFS-P7-gMV" secondAttribute="leading" constant="5" id="nOM-aQ-ckp"/>
+                <constraint firstItem="Ybt-vB-Esp" firstAttribute="top" secondItem="RFS-P7-gMV" secondAttribute="top" constant="7" id="sib-L9-w1A"/>
+                <constraint firstItem="65t-jr-VIG" firstAttribute="top" secondItem="455-Dv-pAa" secondAttribute="top" constant="7" id="tMQ-fC-cKj"/>
+                <constraint firstItem="455-Dv-pAa" firstAttribute="centerX" secondItem="RFS-P7-gMV" secondAttribute="centerX" id="xQs-yX-2Xk"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="397.5" y="78.5"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="J8j-aT-S9C"/>
+                    <exclude reference="L7I-SG-xvs"/>
+                    <exclude reference="Pn3-di-jT4"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="665" y="215"/>
         </view>
     </objects>
+    <resources>
+        <image name="defaultButton.png" width="120" height="121"/>
+    </resources>
 </document>

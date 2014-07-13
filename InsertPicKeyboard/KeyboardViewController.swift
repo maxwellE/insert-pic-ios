@@ -7,17 +7,35 @@
 //
 
 import UIKit
-
+import WebKit
 
 class KeyboardViewController: UIInputViewController {
     
-    var nextKeyboardButton: UIButton!
-    var dotButton: UIButton!
-    var nextImageButton: UIButton!
+    @IBOutlet var webView: UIWebView
     
-//    var dashButton: UIButton!
-//    var deleteButton: UIButton!
-//    var hideKeyboardButton: UIButton!
+    let imageSearch = GiphyRequestManager()
+    
+    var nextKeyboardButton: UIButton!
+    var nextImageButton: UIButton!
+    var imageURLS: [NSURL]?
+    var index: Int = 0
+    
+    @IBAction func nextImage(sender: UIButton) {
+        advanceGif()
+    }
+    
+    @IBAction func didPressPasteImage(sender: UIButton) {
+        var proxy = textDocumentProxy as UITextDocumentProxy
+        var urlText = imageURLS?[index].absoluteString
+        proxy.insertText(urlText)
+    }
+    func advanceGif() {
+        index += 1
+        let url = imageURLS?[index] as NSURL
+        var bodyStr = "<html><body style='background: url(\"".stringByAppendingFormat("%@\")", url)
+        var final = bodyStr.stringByAppendingString(" no-repeat center center fixed;background-repeat: no-repeat;background-size: contain;'></body></html>")
+        webView.loadHTMLString(final, baseURL: nil)
+    }
     
     var customInterface: UIView!
     
@@ -43,36 +61,15 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func addKeyboardButtons() {
-        addDot()
         addNextKeyboardButton()
     }
     
     func nextImage() {
         nextImageButton = UIButton.buttonWithType(.System) as UIButton
         nextImageButton.setTitle(">", forState: .Normal)
-        nextImageButton.sizeToFit()
         
         
-    }
-    
-    func addDot() {
-        dotButton = UIButton.buttonWithType(.System) as UIButton
-        dotButton.setTitle(".", forState: .Normal)
-        dotButton.sizeToFit()
-        dotButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        dotButton.addTarget(self, action: "didTapDot", forControlEvents: .TouchUpInside)
         
-        dotButton.titleLabel.font = UIFont.systemFontOfSize(32)
-        
-        dotButton.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        dotButton.layer.cornerRadius = 5
-        
-        view.addSubview(dotButton)
-        
-        var dotCenterYConstraint = NSLayoutConstraint(item: dotButton, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0)
-        var dotCenterXConstraint = NSLayoutConstraint(item: dotButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0)
-        
-        view.addConstraints([dotCenterXConstraint, dotCenterYConstraint])
     }
     
     func addNextKeyboardButton() {
@@ -95,9 +92,21 @@ class KeyboardViewController: UIInputViewController {
     
     @IBAction func didTapGifAdded() {
         var proxy = textDocumentProxy as UITextDocumentProxy
-        
-        proxy.insertText("Gif Added")
-    }
+        var searchText = proxy.documentContextBeforeInput as String?
+        let withoutWhitespace = searchText?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        println(withoutWhitespace)
+        let anchorman = "anchorman"
+        imageSearch.getGifUrlsForSearchText(withoutWhitespace!, successFunction: {(gifURLS: [NSURL]) -> Void in
+            self.index = -1
+            self.imageURLS = gifURLS
+            if self.imageURLS?.count > 0 {
+                self.advanceGif()
+            }
+            else {
+                return
+            }}, failureFunction: {(e: NSError?) -> Void in
+                println(e)})
+        }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
