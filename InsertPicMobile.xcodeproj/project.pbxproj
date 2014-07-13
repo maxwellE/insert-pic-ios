@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030A2E491972036F00B6B26F /* defaultButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 030A2E481972036F00B6B26F /* defaultButton.png */; };
 		036982711971E23800360432 /* CustomKeyboardInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036982701971E23800360432 /* CustomKeyboardInterface.xib */; };
-		037A88251971F4EC0021204F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037A88241971F4EC0021204F /* CoreMedia.framework */; };
 		B5FB81AB1971D34D00E6C105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81AA1971D34D00E6C105 /* AppDelegate.swift */; };
 		B5FB81AD1971D34D00E6C105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB81AC1971D34D00E6C105 /* ViewController.swift */; };
 		B5FB81B01971D34D00E6C105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FB81AE1971D34D00E6C105 /* Main.storyboard */; };
@@ -65,8 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030A2E481972036F00B6B26F /* defaultButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultButton.png; sourceTree = "<group>"; };
 		036982701971E23800360432 /* CustomKeyboardInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomKeyboardInterface.xib; sourceTree = "<group>"; };
-		037A88241971F4EC0021204F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		B5FB81A51971D34D00E6C105 /* InsertPicMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsertPicMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FB81A91971D34D00E6C105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5FB81AA1971D34D00E6C105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				037A88251971F4EC0021204F /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +110,6 @@
 		B5FB819C1971D34D00E6C105 = {
 			isa = PBXGroup;
 			children = (
-				037A88241971F4EC0021204F /* CoreMedia.framework */,
 				B5FB81A71971D34D00E6C105 /* InsertPicMobile */,
 				B5FB81BA1971D34D00E6C105 /* InsertPicMobileTests */,
 				B5FB81CC1971D43D00E6C105 /* InsertPicKeyboard */,
@@ -180,6 +178,7 @@
 		B5FB81CD1971D43D00E6C105 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				030A2E481972036F00B6B26F /* defaultButton.png */,
 				B5FB81CE1971D43D00E6C105 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -307,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				036982711971E23800360432 /* CustomKeyboardInterface.xib in Resources */,
+				030A2E491972036F00B6B26F /* defaultButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,10 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
     
-//    var nextKeyboardButton: UIButton!
+    var nextKeyboardButton: UIButton!
     var dotButton: UIButton!
+    var nextImageButton: UIButton!
+    
 //    var dashButton: UIButton!
 //    var deleteButton: UIButton!
 //    var hideKeyboardButton: UIButton!
@@ -42,6 +44,15 @@ class KeyboardViewController: UIInputViewController {
     
     func addKeyboardButtons() {
         addDot()
+        addNextKeyboardButton()
+    }
+    
+    func nextImage() {
+        nextImageButton = UIButton.buttonWithType(.System) as UIButton
+        nextImageButton.setTitle(">", forState: .Normal)
+        nextImageButton.sizeToFit()
+        
+        
     }
     
     func addDot() {
@@ -64,7 +75,25 @@ class KeyboardViewController: UIInputViewController {
         view.addConstraints([dotCenterXConstraint, dotCenterYConstraint])
     }
     
-    @IBAction func didTapWeheartSwift() {
+    func addNextKeyboardButton() {
+        nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
+        
+        nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
+        nextKeyboardButton.sizeToFit()
+        nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
+        
+        view.addSubview(nextKeyboardButton)
+        
+        
+        
+        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: +10.0)
+        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item:nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: -10.0)
+        view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+    }
+    
+    @IBAction func didTapGifAdded() {
         var proxy = textDocumentProxy as UITextDocumentProxy
         
         proxy.insertText("Gif Added")
@@ -88,6 +117,8 @@ class KeyboardViewController: UIInputViewController {
         } else {
             textColor = UIColor.blackColor()
         }
+        
+        nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
     }
     
 }
