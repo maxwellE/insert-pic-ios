@@ -25,7 +25,7 @@ class KeyboardViewController: UIInputViewController {
         advanceGif()
     }
     
-    @IBAction func prevImage(sender: AnyObject) {
+    @IBAction func prevImage(sender: UIButton) {
         previousGif()
     }
     
