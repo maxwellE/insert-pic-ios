@@ -1,7 +1,5 @@
-insert-pic-ios
+Insert Pic iOS
 ==============
-
-# Insert Pic
 
 ## Description
 
@@ -17,6 +15,8 @@ https://github.com/maxwellE/insert-pic-ios
 
 - Maxwell Elliot — @maxwellE
 - Krishnan Srinivasan - @krishnan-srinivasan
+- @gravityshouldbenaut
+- @Arrow4
 
 
 ## Updates
